@@ -13,6 +13,8 @@ node_modules/
 .tmp/
 
 # OS or Editor folders
+exit
+package-lock.json
 .DS_Store
 Thumbs.db
 .cache
