@@ -18,9 +18,18 @@ gulpie.task('watch', function() {
   watch('./app/assets/styles/**/*.css', function() {
     gulpie.start('cssInject');
   });
+
+  watch('./app/assets/scripts/**/*.js', function() {
+    gulpie.start('scriptsRefresh');
+  });
+
 });
 
 gulpie.task('cssInject', ['styles'],function() {
     return gulpie.src('./app/temp/styles/styles.css')
     .pipe(browserSync.stream());
+});
+
+gulpie.task('scriptsRefresh', ['scripts'], function() {
+  browserSync.reload();
 });

@@ -1,0 +1,134 @@
+.site-header {
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+
+  &--is-expanded {
+    background-color: rgba(47, 84, 113, .55);
+    transition: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  @mixin atMedium {
+    background-color: rgba(47, 84, 113, .3);
+  }
+
+  &__btn-container {
+
+    @mixin atMedium {
+      float: right;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(.8);
+    transform-origin: 50% 0;
+    background-color: $mainBlue;
+    padding: 25px 36px;
+
+    @mixin atMedium {
+      left: auto;
+      transform: translateX(0);
+    }
+  }
+
+  &__menu-icon {
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transition: all;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+    }
+
+    &__middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transition: all;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transition: all;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+    }
+
+    @mixin atMedium {
+      display: none;
+    }
+  }
+
+  &__menu-icon--closed-x {
+
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+      transform-origin: 0 0;
+    }
+
+    .site-header__menu-icon__middle {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+    }
+
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+      transform-origin: 0 100%;
+    }
+  }
+
+  &__menu-content {
+    z-index: -10;
+    position: relative;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    padding-top: 80px;
+    text-align: center;
+
+    @mixin atMedium {
+      opacity: 1;
+      z-index: 1;
+      padding-top: 0;
+      transform: scale(1);
+    }
+
+    &--is-visible {
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
+    }
+  }
+}
