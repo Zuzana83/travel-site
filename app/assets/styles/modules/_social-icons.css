@@ -1,0 +1,12 @@
+.social-icons {
+  text-align: center;
+
+  &__icon {
+     display: inline-block;
+     margin: 0 5px;
+  }
+
+  .icon {
+    display: block;
+  }
+}
